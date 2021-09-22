@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Persona;
 
 namespace Presentación
 {
@@ -10,35 +11,25 @@ namespace Presentación
     {
         static void Main(string[] args)
         {
-            string identificacion, nombre, sexo;
-            int edad;
-            decimal pulsacion;
+            string Identificacion, Nombre, Sexo;
+            int Edad;
+            decimal Pulsacion;
 
             Console.WriteLine("Digite la Identificacion: ");
-            identificacion = Console.ReadLine();
+            Identificacion = Console.ReadLine();
 
             Console.WriteLine("Digite El Nombre: ");
-            nombre = Console.ReadLine();
+            Nombre = Console.ReadLine();
 
             Console.WriteLine("Digite El sexi (M/F): ");
-            sexo = Console.ReadLine();
+            Sexo = Console.ReadLine();
            
             Console.WriteLine("Digite la Edad: ");
-            edad = int.Parse(Console.ReadLine());
+            Edad = int.Parse(Console.ReadLine());
 
-            if (sexo.ToUpper().Equals("M"))
-            {
-                pulsacion = (210 - edad) / 10;
-
-            }else if (sexo.ToUpper().Equals("F"))
-            {
-                pulsacion = (220 - edad) / 10;
-            }
-            else
-            {
-                pulsacion = 0;
-            }
-            Console.WriteLine($"Su pulsacion es {pulsacion}");
+            Persona persona = new Persona(Identificacion,Nombre,Edad,Sexo);
+            persona.CalcularPulsacion();
+            Console.WriteLine($"Su pulsacion es {persona.Pulsacion}");
             Console.ReadKey();
 
         }
