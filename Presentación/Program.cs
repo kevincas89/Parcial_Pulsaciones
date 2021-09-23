@@ -21,7 +21,7 @@ namespace Presentación
             Console.WriteLine("Digite El Nombre: ");
             Nombre = Console.ReadLine();
 
-            Console.WriteLine("Digite El sexi (M/F): ");
+            Console.WriteLine("Digite El sexo (M/F): ");
             Sexo = Console.ReadLine();
            
             Console.WriteLine("Digite la Edad: ");
