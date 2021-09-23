@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Persona;
+using Entidad;
 
 namespace Presentación
 {
@@ -13,7 +13,7 @@ namespace Presentación
         {
             string Identificacion, Nombre, Sexo;
             int Edad;
-            decimal Pulsacion;
+            
 
             Console.WriteLine("Digite la Identificacion: ");
             Identificacion = Console.ReadLine();
@@ -28,7 +28,7 @@ namespace Presentación
             Edad = int.Parse(Console.ReadLine());
 
             Persona persona = new Persona(Identificacion,Nombre,Edad,Sexo);
-            persona.CalcularPulsacion();
+            persona.CalcularPulsaciones();
             Console.WriteLine($"Su pulsacion es {persona.Pulsacion}");
             Console.ReadKey();
 
