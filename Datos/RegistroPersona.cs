@@ -8,7 +8,7 @@ using Entidad;
 
 namespace Datos
 {
-    class RegistroPersona
+    public class RegistroPersona
     {
         string ruta = "persona.txt";
 
