@@ -78,6 +78,27 @@ namespace Datos
         public void Modificar(Persona personaNuevo, string Identificacion)
         {
 
+            List<Persona> personas = Consultar();
+            FileStream file = new FileStream(ruta, FileMode.Create);
+            file.Close();
+
+            foreach (var item in personas)
+            {
+
+                if (!item.Identificacion.Equals(Identificacion))
+                {
+
+                    Guardar(item);
+
+                }
+                else
+                {
+
+                    Guardar(personaNuevo);
+
+                }
+
+            }
 
 
         }
