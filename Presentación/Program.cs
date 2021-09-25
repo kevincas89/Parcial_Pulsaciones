@@ -52,7 +52,10 @@ namespace Presentación
                     case 4:
                         Eliminar();
                         break;
-                    case 5: break;
+                    case 5:
+                        Console.WriteLine("Parcial hecho por Kevin Castillo Aroca y Juan Pablo Mendoza Amaya");
+                        Console.ReadKey();
+                        break;
                     default: Console.WriteLine("Valor fuera de rango");
                         Console.ReadKey();
                         break;
