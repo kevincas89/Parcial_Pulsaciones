@@ -71,12 +71,33 @@ namespace Presentación
         private static void Eliminar()
         {
 
-            
+            Console.Write("Ingrese Identificación: ");
+            Console.WriteLine(servicio.Eliminar(Console.ReadLine()));
+            Console.ReadKey();
+
         }
 
         private static void Modificar()
         {
-            
+            string Mensaje;
+            Persona persona = new Persona();
+
+            Console.Write("Ingrese la Identificacion a Modificar: ");
+            persona.Identificacion = Console.ReadLine();
+
+            Console.Write("Digite El Nombre: ");
+            persona.Nombre = Console.ReadLine();
+
+            Console.Write("Digite El sexo (M/F): ");
+            persona.Sexo = Console.ReadLine();
+
+            Console.Write("Digite la Edad: ");
+            persona.Edad = int.Parse(Console.ReadLine());
+
+            persona.CalcularPulsaciones();
+            Mensaje = servicio.Modificar(persona, persona.Identificacion);
+            Console.Write(Mensaje);
+            Console.ReadKey();
         }
 
         private static void Consultar()
