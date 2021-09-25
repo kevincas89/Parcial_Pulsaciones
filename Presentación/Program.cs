@@ -56,7 +56,7 @@ namespace Presentación
                         Console.WriteLine("Parcial hecho por Kevin Castillo Aroca y Juan Pablo Mendoza Amaya");
                         Console.ReadKey();
                         break;
-                    default: Console.WriteLine("Valor fuera de rango");
+                    default: Console.WriteLine("Valor fuera de rango, las opciones van del 1 al 5");
                         Console.ReadKey();
                         break;
                     
@@ -128,7 +128,7 @@ namespace Presentación
 
             string Mensaje;
 
-            
+                       
             Console.Write("Digite la Identificacion: ");
             persona.Identificacion= Console.ReadLine();
 
