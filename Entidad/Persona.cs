@@ -8,6 +8,10 @@ namespace Entidad
 {
     public class Persona
     {
+        public Persona()
+        {
+        }
+
         public Persona(string identificacion, string nombre, int edad, string sexo)
         {
             Identificacion = identificacion;

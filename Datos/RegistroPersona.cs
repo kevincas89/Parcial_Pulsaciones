@@ -70,9 +70,6 @@ namespace Datos
                 }
 
             }
-
-
-
         }
 
         public void Modificar(Persona personaNuevo, string Identificacion)
@@ -102,6 +99,19 @@ namespace Datos
 
 
         }
+
+        public Persona BuscarPorIdentificacion(string identificacion)
+        {
+            foreach (var item in Consultar())
+            {
+                if (item.Identificacion.Equals(identificacion))
+                {
+                    return item;
+                }
+                return null;
+            }
+        }
+
 
     }
 }
