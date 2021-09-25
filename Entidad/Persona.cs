@@ -8,17 +8,7 @@ namespace Entidad
 {
     public class Persona
     {
-        public Persona()
-        {
-        }
-
-        public Persona(string identificacion, string nombre, int edad, string sexo)
-        {
-            Identificacion = identificacion;
-            Nombre = nombre;
-            Edad = edad;
-            Sexo = sexo;
-        }
+       
 
         public string Identificacion { get; set; }
         public string Nombre { get; set; }
@@ -52,8 +42,16 @@ namespace Entidad
         }
         public override string ToString()
         {
-            return $"Identificacion: {Identificacion}  Nombre{Nombre}  Sexo{Sexo}  Edad{Edad}";
+            return $"Identificacion: {Identificacion}  Nombre: {Nombre}  Sexo: {Sexo}  Edad: {Edad} Pulsacion: {Pulsacion} por minuto";
         }
+
+        public string Escribir()
+        {
+
+            return $"{Identificacion};{Nombre};{Sexo};{Edad};{Pulsacion}";
+
+        }
+
 
     }
 

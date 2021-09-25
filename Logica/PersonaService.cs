@@ -24,15 +24,15 @@ namespace Logica
                 if (registroPersona.BuscarPorIdentificacion(persona.Identificacion)==null)
                 {
                     registroPersona.Guardar(persona);
-                    return "Datos guardados correctamente";
+                    return "\nDatos guardados correctamente";
                 }
-                return $"La persona con la identificacion {persona.Identificacion} ya se encuentra registrada.";
+                return $"\nLa persona con la identificacion {persona.Identificacion} ya se encuentra registrada.";
                 
             }
             catch (Exception exception)
             {
 
-                return "Ocurrieron los siguientes errores: " + exception.Message;
+                return "\nOcurrieron los siguientes errores: " + exception.Message;
             }
         }
 
@@ -43,14 +43,14 @@ namespace Logica
                 if (registroPersona.BuscarPorIdentificacion(identificacion)!=null)
                 {
                     registroPersona.Eliminar(identificacion);
-                    return $"Se elimino a la persona con la identificacion {identificacion}";
+                    return $"\nSe elimino a la persona con la identificacion {identificacion}";
                 }
-                return $"No se encontro a la persona con identificacion{identificacion}";
+                return $"\nNo se encontro a la persona con identificacion{identificacion}";
             }
             catch (Exception exception)
             {
 
-                return "Ocurrieron los siguientes errores: " + exception.Message;
+                return "\nOcurrieron los siguientes errores: " + exception.Message;
             }
         }
 
@@ -61,14 +61,14 @@ namespace Logica
                 if (registroPersona.BuscarPorIdentificacion(identificacion) != null)
                 {
                     registroPersona.Modificar(personaNueva,identificacion);
-                    return $"Se modifico a la persona con la identificacion {identificacion}";
+                    return $"\nSe modifico a la persona con la identificacion {identificacion}";
                 }
-                return $"No se encontro a la persona con identificacion{identificacion}";
+                return $"\nNo se encontro a la persona con identificacion{identificacion}";
             }
             catch (Exception exception)
             {
 
-                return "Ocurrieron los siguientes errores: " + exception.Message;
+                return "\nOcurrieron los siguientes errores: " + exception.Message;
             }
         }
 
@@ -83,7 +83,7 @@ namespace Logica
             catch (Exception exception)
             {
                 ///Retorna un string 
-                return new BusquedaReponse("Ocurrieron los siguientes errores: " + exception.Message);
+                return new BusquedaReponse("\nOcurrieron los siguientes errores: " + exception.Message);
             }
         }
 
@@ -97,25 +97,25 @@ namespace Logica
             catch (Exception exception)
             {
                 //retorno un string con un mensaje
-                return new ConsultaResponse("Ocurrieron los siguientes errores: " + exception.Message);
+                return new ConsultaResponse("\nOcurrieron los siguientes errores: " + exception.Message);
             }
         }
     }
 
     public class ConsultaResponse
     {
-        public List<Persona> personas { get; set; }
+        public List<Persona> Personas { get; set; }
 
         public string Mensaje { get; set; }
         public bool Error { get; set; }
 
         public ConsultaResponse(List<Persona> personas)
         {
-            personas = personas;
+            Personas = personas;
             Error = false;
         }
 
-        public ConsultaResponse(String mensaje)
+        public ConsultaResponse(string mensaje)
         {
             Mensaje = mensaje;
             Error = true;
@@ -124,18 +124,18 @@ namespace Logica
 
     public class BusquedaReponse
     {
-        public Persona persona { get; set; }
+        public Persona Persona { get; set; }
 
         public string Mensaje { get; set; }
         public bool Error { get; set; }
 
-        public BusquedaReponse(Persona personas)
+        public BusquedaReponse(Persona persona)
         {
-            personas = personas;
+            Persona = persona;
             Error = false;
         }
 
-        public BusquedaReponse(String mensaje)
+        public BusquedaReponse(string mensaje)
         {
             Mensaje = mensaje;
             Error = true;

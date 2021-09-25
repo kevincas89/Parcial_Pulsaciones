@@ -10,35 +10,82 @@ namespace Presentación
 {
     class Program
     {
+       static PersonaService servicio = new PersonaService();
+
         static void Main(string[] args)
         {
-            string Identificacion, Nombre, Sexo;
-            int Edad;
 
-            PersonaService personaService = new PersonaService();
-            Console.WriteLine("Digite la Identificacion: ");
-            Identificacion = Console.ReadLine();
+            Menu();
 
-            Console.WriteLine("Digite El Nombre: ");
-            Nombre = Console.ReadLine();
+        }
 
-            Console.WriteLine("Digite El sexo (M/F): ");
-            Sexo = Console.ReadLine();
-           
-            Console.WriteLine("Digite la Edad: ");
-            Edad = int.Parse(Console.ReadLine());
+        static void Menu()
+        {
 
-            Persona persona = new Persona(Identificacion,Nombre,Edad,Sexo);
-            persona.CalcularPulsaciones();
+            int opc;
+
+
+            do
+            {
+
+                Console.WriteLine("\nMenu DE Opciones\n");
+                Console.WriteLine("1... Reguistrar Persona");
+                Console.WriteLine("2... Consultar Persona");
+                Console.WriteLine("3... Modificar Persona");
+                Console.WriteLine("4... Eliminar Persona");
+                Console.WriteLine("5... Salir\n");
+                Console.Write("Ingrese opcion ->");
+                opc = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("");
+
+                switch (opc)
+                {
+                    case 1:
+                        Registrar();
+                        break;
+                    case 2:
+                        Consultar();
+                        break;
+                    case 3:
+                        Modificar();
+                        break;
+                    case 4:
+                        Eliminar();
+                        break;
+                    case 5: break;
+                    default: Console.WriteLine("Valor fuera de rango");
+                        Console.ReadKey();
+                        break;
+                    
+
+                }
+
+                
+                Console.Clear();
+
+            } while (opc != 5);
+
+
+        }
+
+        private static void Eliminar()
+        {
+
             
-            Console.WriteLine($"Su pulsacion es {persona.Pulsacion}");
-            Console.WriteLine($"///Guardando desde servicio///");
-            Console.WriteLine(personaService.Guardar(persona));
-            Console.WriteLine($"///Consultando desde servicio///");
-            ConsultaResponse response = personaService.Consultar();
+        }
+
+        private static void Modificar()
+        {
+            
+        }
+
+        private static void Consultar()
+        {
+            ConsultaResponse response = servicio.Consultar();
+
             if (!response.Error)
             {
-                foreach (var item in response.personas)
+                foreach (var item in response.Personas)
                 {
                     Console.WriteLine(item.ToString());
                 }
@@ -47,6 +94,33 @@ namespace Presentación
             {
                 Console.WriteLine(response.Mensaje);
             }
+
+            Console.ReadKey();
+        }
+
+        private static void Registrar()
+        {
+            Persona persona = new Persona();
+
+            string Mensaje;
+
+            
+            Console.Write("Digite la Identificacion: ");
+            persona.Identificacion= Console.ReadLine();
+
+            Console.Write("Digite El Nombre: ");
+            persona.Nombre = Console.ReadLine();
+
+            Console.Write("Digite El sexo (M/F): ");
+            persona.Sexo = Console.ReadLine();
+
+            Console.Write("Digite la Edad: ");
+            persona.Edad = int.Parse(Console.ReadLine());
+
+            persona.CalcularPulsaciones();
+            Mensaje = servicio.Guardar(persona);
+
+            Console.WriteLine(Mensaje);
             Console.ReadKey();
 
         }

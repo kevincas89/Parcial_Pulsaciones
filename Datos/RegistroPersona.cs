@@ -17,7 +17,11 @@ namespace Datos
 
             FileStream file = new FileStream(ruta, FileMode.Append);
             StreamWriter escritor = new StreamWriter(file);
-            escritor.WriteLine($"{persona.Identificacion};{persona.Nombre};{persona.Sexo};{persona.Edad};{persona.Pulsacion}");
+            escritor.WriteLine(persona.Escribir());
+            escritor.Close();
+            file.Close();
+            
+
         }
 
         public List<Persona> Consultar()
@@ -108,8 +112,8 @@ namespace Datos
                 {
                     return item;
                 }
-                return null;
             }
+            return null;
         }
 
 
