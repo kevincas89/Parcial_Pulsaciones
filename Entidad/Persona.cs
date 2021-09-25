@@ -46,7 +46,10 @@ namespace Entidad
             }
 
         }
-
+        public override string ToString()
+        {
+            return $"Identificacion: {Identificacion}  Nombre{Nombre}  Sexo{Sexo}  Edad{Edad}";
+        }
 
     }
 
