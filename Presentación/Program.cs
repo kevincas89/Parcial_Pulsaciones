@@ -82,7 +82,7 @@ namespace Presentación
 
         private static void Modificar()
         {
-            string Mensaje;
+            string Mensaje,SexoTemp;
             Persona persona = new Persona();
 
             Console.Write("Ingrese la Identificacion a Modificar: ");
@@ -91,8 +91,12 @@ namespace Presentación
             Console.Write("Digite El Nombre: ");
             persona.Nombre = Console.ReadLine();
 
-            Console.Write("Digite El sexo (M/F): ");
-            persona.Sexo = Console.ReadLine();
+            do
+            {
+                Console.Write("Digite El sexo (M/F): ");
+                SexoTemp = Console.ReadLine();
+            } while ((!SexoTemp.ToUpper().Equals("F")) && (!SexoTemp.ToUpper().Equals("M")));
+            persona.Sexo = SexoTemp;
 
             Console.Write("Digite la Edad: ");
             persona.Edad = int.Parse(Console.ReadLine());
@@ -126,7 +130,7 @@ namespace Presentación
         {
             Persona persona = new Persona();
 
-            string Mensaje;
+            string Mensaje,SexoTemp;
 
                        
             Console.Write("Digite la Identificacion: ");
@@ -135,8 +139,14 @@ namespace Presentación
             Console.Write("Digite El Nombre: ");
             persona.Nombre = Console.ReadLine();
 
-            Console.Write("Digite El sexo (M/F): ");
-            persona.Sexo = Console.ReadLine();
+            do
+            {
+                Console.Write("Digite El sexo (M/F): ");
+                SexoTemp = Console.ReadLine();
+            }while ((!SexoTemp.ToUpper().Equals("F")) && (!SexoTemp.ToUpper().Equals("M")));
+            
+
+            persona.Sexo = SexoTemp;
 
             Console.Write("Digite la Edad: ");
             persona.Edad = int.Parse(Console.ReadLine());
